@@ -15,10 +15,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={outfit.className}
+        className={`${outfit.className} min-h-screen w-full bg-white relative`}
       >
-        {children}
+        <div
+    className="absolute inset-0 z-0"
+    style={{
+      background: "#ffffff",
+      backgroundImage: `
+        radial-gradient(
+          circle at top left,
+          rgba(70, 130, 180, 0.5),
+          transparent 70%
+        )
+      `,
+      filter: "blur(80px)",
+      backgroundRepeat: "no-repeat",
+    }}
+  />
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
 }
+
