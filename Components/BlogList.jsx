@@ -14,7 +14,7 @@ const BlogList = () => {
       </div>
       <div className='px-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {
-         blog_data.filter((item) => category==="All"?true:category===item.category).map((item, index) => (<BlogItem key={index} category={item.category} title={item.title} image={item.image} description={item.description} />)) }
+         blog_data.filter((item) => category==="All"?true:category===item.category).map((item, index) => (<BlogItem key={index} id={item.id} category={item.category} title={item.title} image={item.image} description={item.description} />)) }
       </div>
     </div>
   )

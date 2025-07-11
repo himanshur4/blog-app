@@ -10,7 +10,7 @@ const Header = () => {
                 <h1 className='flex items-center font-mono justify-center gap-0 tracking-tighter text-2xl sm:text-4xl'>
                     <ShipWheel className='w-10 m-0 p-0' />
                     Blogforge</h1>
-                <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]'>Get started <Image src={assets.arrow} /></button>
+                <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-7px_7px_0px_#000000]'>Get started <Image src={assets.arrow} alt="arrow"/></button>
             </div>
             <div className='text-center my-8'>
                 <h1 className='text-3xl sm:text-5xl font-medium text-black'>Latest Blogs</h1>

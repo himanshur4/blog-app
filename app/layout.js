@@ -1,7 +1,7 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
-const outfit=Outfit({
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -18,20 +18,20 @@ export default function RootLayout({ children }) {
         className={`${outfit.className} min-h-screen w-full bg-white relative`}
       >
         <div
-    className="absolute inset-0 z-0"
-    style={{
-      background: "#ffffff",
-      backgroundImage: `
+          className="absolute inset-0 z-0"
+          style={{
+            background: "#ffffff",
+            backgroundImage: `
         radial-gradient(
           circle at top left,
           rgba(70, 130, 180, 0.5),
           transparent 70%
         )
       `,
-      filter: "blur(80px)",
-      backgroundRepeat: "no-repeat",
-    }}
-  />
+            filter: "blur(80px)",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
         <div className="relative z-10">{children}</div>
       </body>
     </html>
