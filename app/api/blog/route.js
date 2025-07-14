@@ -1,5 +1,5 @@
-import { connectDB } from "@/lib/config/db"
-import BlogModel from "@/lib/models/BlogModels";
+import { connectDB } from "@/lib/config/db.js"
+import BlogModel from "@/lib/models/BlogModels.js";
 
 const { NextResponse } = require("next/server")
 import { writeFile } from "fs/promises";
@@ -10,8 +10,17 @@ const loadDB=async()=>{
 loadDB();
 //api endpoint to get all blogs
 export async function GET(request){
+    const blogId=request.nextUrl.searchParams.get('id');
+    if(blogId){
+        const blog=await BlogModel.findById(blogId);
+        if(!blog){
+            return NextResponse.json({success:false, msg:"Blog not found"});
+        }
+        return NextResponse.json(blog);
+    }
+
     const blogs=await BlogModel.find({});
-    return NextResponse.json({blogs, success:true, msg:"Blogs fetched successfully"});
+    return NextResponse.json({blogs});
 }
 
 //API endpoint for uploading blogs
