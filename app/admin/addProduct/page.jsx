@@ -38,14 +38,11 @@ const page = () => {
         if (res.data.success) {
             toast.success(res.data.msg, {
                 style: {
-                    border: '1px solid #713200',
-                    padding: '16px',
-                    color: '#713200',
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
                 },
-                iconTheme: {
-                    primary: '#713200',
-                    secondary: '#FFFAEE',
-                },
+
             });
             setImage(false);
             setData({
@@ -85,7 +82,7 @@ const page = () => {
 
                     </select>
                     <br />
-                    <button type='submit' className='mt-8 w-60 h-10 mb-10 bg-black text-white'>Add</button>
+                    <button type='submit' className='mt-8 w-60 h-10 mb-10 bg-black text-white cursor-pointer'>Add</button>
                 </label>
             </form>
         </div>

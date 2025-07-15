@@ -15,19 +15,18 @@ const page = () => {
       console.error("Failed to fetch blogs:", res.data);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     fetchBlogs();
-  },[]);
+  }, []);
+
   const deleteBlog = async (mongoId) => {
-    const res = await axios.delete(`/api/blog/${mongoId}`);
-    if (res.data.success) {
-      toast.success(res.data.msg);
-    } else {
-      toast.error("Failed to delete blog");
-    }
-    fetchBlogs();
-     
-   
+    toast.promise(axios.delete(`/api/blog?id=${mongoId}`),{
+      loading:"Deleting blog...",
+      success:<b>Blog Deleted Successfully 🎉</b>,
+      error:<b>Could not Delete.</b>,
+    }).then(()=>{
+      fetchBlogs();
+    })
   };
   return (
     <div className='flex-1 pt-5 px-5 sm:pt-12 sm:pl-16'>
@@ -39,7 +38,7 @@ const page = () => {
               <th scope='col' className="hidden sm:block px-6 py-3">Author name</th>
               <th scope='col' className="px-6 py-3">Blog Title</th>
               <th scope='col' className="px-6 py-3">Date</th>
-               <th scope='col' className="px-6 py-3">Action</th>
+              <th scope='col' className="px-6 py-3">Action</th>
             </tr>
           </thead>
           <tbody>

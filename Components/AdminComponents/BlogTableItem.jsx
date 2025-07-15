@@ -17,7 +17,7 @@ const BlogTableItem = ({ authorImg,title ,date,author,handleDelete,mongoId}) => 
                 {BlogDate.toDateString()}
             </td>
             <td className='px-10 py-4' >
-               <span className= 'cursor-pointer hover:text-red-900 hover:bg-slate-200 hover:p-1 hover:rounded-full' onClick={() => handleDelete(mongoId)}>X</span>
+               <span className= 'cursor-pointer hover:text-red-900 hover:bg-slate-200 hover:p-1 hover:rounded-full hover' onClick={() => handleDelete(mongoId)}>X</span>
             </td>
         </tr>
     )

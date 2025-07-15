@@ -50,7 +50,7 @@ export async function POST(request){
 
 //API endpoint for deleting a blog
 export async function DELETE(request){
-    const id=request.nextUrl.searchParams.get('id');
+    const id=await request.nextUrl.searchParams.get('id');
     
    const blog= await BlogModel.findById(id);
    fs.unlink(`./public${blog.image}`,()=>{});
